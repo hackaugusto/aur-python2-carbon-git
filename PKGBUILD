@@ -1,7 +1,7 @@
 # Maintainer: Augusto F. Hack <hack.augusto@gmail.com>
 pkgname=python2-carbon-git
 pkgver=0.9.12
-pkgrel=1
+pkgrel=2
 pkgdesc="Backend data caching and persistence daemon for Graphite"
 arch=('any')
 url="https://github.com/graphite-project/carbon"
@@ -9,6 +9,15 @@ license=('apache')
 depends=('python2' 'python2-twisted' 'python2-whisper-git' 'python2-txamqp')
 makedepends=('git' 'python2')
 options=(!emptydirs)
+backup=(etc/carbon/aggregation-rules.conf
+        etc/carbon/carbon.amqp.conf
+        etc/carbon/relay-rules.conf
+        etc/carbon/storage-aggregation.conf
+        etc/carbon/whitelist.conf
+        etc/carbon/blacklist.conf
+        etc/carbon/carbon.conf
+        etc/carbon/rewrite-rules.conf
+        etc/carbon/storage-schemas.conf)
 source=('carbon::git+https://github.com/graphite-project/carbon.git'
         'carbon.service'
         'carbon.conf')
